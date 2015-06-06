@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt babel:build"
   },
   "author": "rafaelspdasilva@gmail.com",
   "license": "MIT",
