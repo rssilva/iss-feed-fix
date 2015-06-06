@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       node: {
-        files: ['./index.js', '!./app/public/**/*.js'],
+        files: ['./index.js', './app/**/*.js', '!./app/public/**/*.js'],
         tasks: ['babel:build'],
         options: {
           nospawn: true
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd   : './',
           dest  : 'build/',
-          src: ['./index.js']
+          src: ['./index.js', './app/**/*.js']
         }]
       },
       process: function (src, path_to_file) {
