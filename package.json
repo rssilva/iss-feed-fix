@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd build && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "./node_modules/grunt-cli/bin/grunt babel:build"
   },
