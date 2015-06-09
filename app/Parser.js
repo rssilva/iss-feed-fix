@@ -49,7 +49,6 @@ var Parser = {
       if (!error && response.statusCode == 200) {
         var atomLink = '<atom:link href="' + uri + '"';
 
-        body = body.replace(/<title>.*<\/title>/, 'Ola, semana academica!!!');
         body = body.replace(/<link>.*<\/link>/, '<link>' + uri + name + '</link>');
         body = body.replace(/<managingEditor>.*<\/managingEditor>/, '');
         body = body.replace(/<webMaster>.*<\/webMaster>/, '');
