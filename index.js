@@ -6,6 +6,7 @@ var http = require('http');
 var Router = require('node-simple-router');
 
 var router = new Router();
+var Parser = require('./app/Parser')(router);
 
 http.createServer(router).listen(port);
 
