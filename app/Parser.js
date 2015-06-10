@@ -52,11 +52,11 @@ var Parser = {
         // body = body.replace(/<link>.*<\/link>/, '<link>' + uri + name + '</link>');
         // body = body.replace(/<managingEditor>.*<\/managingEditor>/, '');
         // body = body.replace(/<webMaster>.*<\/webMaster>/, '');
-        body = body.replace(/(&lt;br\/&gt;|<br\/>)/g, '');
-        body = body.replace(/<atom[:a-z =]{1,}href="[^"]{1,}"/, atomLink);
-        body.match(/<guid>.*<\/guid>/g).map(function (guid, index) {
-          body = body.replace(/<guid>.*spotthestation.*<\/guid>/, '<guid>' + guidUrl + '/' + index+ '/' + '</guid>');
-        });
+        // body = body.replace(/(&lt;br\/&gt;|<br\/>)/g, '');
+        // body = body.replace(/<atom[:a-z =]{1,}href="[^"]{1,}"/, atomLink);
+        // body.match(/<guid>.*<\/guid>/g).map(function (guid, index) {
+        //   body = body.replace(/<guid>.*spotthestation.*<\/guid>/, '<guid>' + guidUrl + '/' + index+ '/' + '</guid>');
+        // });
 
         body.match(/<\/description>.*(\n\r|\n|\r).*<guid>/g).map(function (intersection, index) {
           body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/g, '</description><link>' + guidUrl + '/' + index + '/' +  '</link><guid>');
