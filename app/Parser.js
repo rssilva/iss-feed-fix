@@ -44,6 +44,7 @@ var Parser = {
     var url = firstPart + '/' + name;
     var uri = 'http://issfeed2.herokuapp.com/';
     var guidUrl = uri + country + '/' + name + '/' + city;
+    var link;
 
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -54,12 +55,11 @@ var Parser = {
         // body = body.replace(/<webMaster>.*<\/webMaster>/, '');
         // body = body.replace(/(&lt;br\/&gt;|<br\/>)/g, '');
         // body = body.replace(/<atom[:a-z =]{1,}href="[^"]{1,}"/, atomLink);
-        // body.match(/<guid>.*<\/guid>/g).map(function (guid, index) {
-        //   body = body.replace(/<guid>.*spotthestation.*<\/guid>/, '<guid>' + guidUrl + '/' + index+ '/' + '</guid>');
-        // });
 
-        body.match(/<\/description>.*(\n\r|\n|\r).*<guid>/g).map(function (intersection, index) {
-          body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/g, '</description><link>' + guidUrl + '/' + index + '/' +  '</link><guid>');
+        body.match(/<guid>.*<\/guid>/g).map(function (guid, index) {
+          // body = body.replace(/<guid>.*spotthestation.*<\/guid>/, '<guid>' + guidUrl + '/' + index+ '/' + '</guid>');
+          link = guid.replace(/<\/?guid>/g, '');
+          body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/g, '</description><link>' + link +  '</link><guid>');
         });
 
         // body = body.replace(/(\r?\n|\r)/g, '')
