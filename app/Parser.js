@@ -64,7 +64,7 @@ var Parser = {
 
         // body = body.replace(/(\r?\n|\r)/g, '')
 
-        body = body.replace(/rel="self"/g, 'rel="alternate"');
+        // body = body.replace(/rel="self"/g, 'rel="alternate"');
 
         cb(body);
 
