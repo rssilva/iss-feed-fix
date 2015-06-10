@@ -59,7 +59,7 @@ var Parser = {
         body.match(/<guid>.*<\/guid>/g).map(function (guid, index) {
           // body = body.replace(/<guid>.*spotthestation.*<\/guid>/, '<guid>' + guidUrl + '/' + index+ '/' + '</guid>');
           link = guid.replace(/<\/?guid>/g, '');
-          body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/g, '</description><link>' + link +  '</link><guid>');
+          body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/, '</description><link>' + link +  '</link><guid>');
         });
 
         // body = body.replace(/(\r?\n|\r)/g, '')
