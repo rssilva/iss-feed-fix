@@ -1,9 +1,6 @@
 var url = require('url');
 var fs = require('fs');
 var request = require('request');
-// var xml2js = require('xml2js');
-
-// var xmlParser = new xml2js.Parser();
 
 var Parser = {
   init: function (router) {
@@ -61,14 +58,7 @@ var Parser = {
           link = guid.replace(/<\/?guid>/g, '');
           body = body.replace(/<\/description>.*(\n\r|\n|\r).*<guid>/, '</description><link>' + link +  '</link><guid>');
         });
-
-        // body = body.replace(/(\r?\n|\r)/g, '')
-
-        // body = body.replace(/rel="self"/g, 'rel="alternate"');
-
         cb(body);
-
-        // this.save(name, body);
       }
 
       if (error || response.statusCode != 200) {
@@ -82,17 +72,6 @@ var Parser = {
 
     console.log('path', path)
 
-    // xmlParser.parseString(content);
-
-    // xmlParser.addListener('end', function(result) {
-    //   fs.writeFile(path.replace(/\.xml/, '.json'), JSON.stringify(result), function (err) {
-    //     if (err) {
-    //       return console.log(err);
-    //     }
-
-    //     console.log('Saved .json');
-    //   });
-    // });
     try {
       fs.writeFile(path, content, function (err) {
         if (err) {
