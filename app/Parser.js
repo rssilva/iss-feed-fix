@@ -43,12 +43,12 @@ var Parser = {
     var name = country + '_' + state + '_' + city + '.xml';
     var url = firstPart + '/' + name;
     var uri = 'http://iss-feed-fix.herokuapp.com/';
-    var guidUrl = uri + country + '/' + name + '/' + city;
+    var guidUrl = uri + country + '/' + state + '/' + city + '.xml';
     var link;
 
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        var atomLink = '<atom:link href="' + uri + '"';
+        var atomLink = '<atom:link href="' + guidUrl + '"';
 
         body = body.replace(/<link>.*<\/link>/, '<link>' + uri + name + '</link>');
         body = body.replace(/<managingEditor>.*<\/managingEditor>/, '');
