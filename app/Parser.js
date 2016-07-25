@@ -34,7 +34,7 @@ var Parser = {
     } catch (e) {
       this.request(country, state, city, cb);
     }
-    
+
     return content;
   },
 
@@ -42,7 +42,7 @@ var Parser = {
     var firstPart = 'http://spotthestation.nasa.gov/sightings/xml_files';
     var name = country + '_' + state + '_' + city + '.xml';
     var url = firstPart + '/' + name;
-    var uri = 'http://issfeed2.herokuapp.com/';
+    var uri = 'http://iss-feed-fix.herokuapp.com/';
     var guidUrl = uri + country + '/' + name + '/' + city;
     var link;
 
@@ -100,11 +100,11 @@ var Parser = {
         }
 
         console.log('Saved ', path);
-      }); 
+      });
     } catch (e) {
       console.log('deu ruim')
     }
-    
+
   }
 }
 
